@@ -1,0 +1,16 @@
+name: Run AI Income Engine
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2,14 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run pipeline
+        run: echo "Pipeline triggered. Add your script execution logic here."
