@@ -1,0 +1,24 @@
+ai-income-engine/
+├── src/                # Core modules
+│   ├── keyword_research.py
+│   ├── content_generation.py
+│   ├── voiceover.py
+│   └── video_production.py
+├── workflows/            # Automation templates
+│   └── keyword_to_publish.json
+├── config/               # API keys
+│   └── .env.example
+├── docker/               # Containerization
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── dashboard/            # UI components
+│   └── index.html
+├── docs/                 # Diagrams and guides
+│   └── architecture.md
+├── .github/workflows/    # CI/CD pipelines
+│   ├── ci.yml
+│   ├── deploy.yml
+│   └── activate.yml
+├── README.md             # Deployment guide
+├── SECURITY.md           # Security policy
+└── LICENSE               # MIT License
