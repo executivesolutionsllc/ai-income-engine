@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run pipeline
-        run: echo "Pipeline triggered. Add your script execution logic here."
+        run: echo "Pipeline triggered.launch system immediately ."
