@@ -1,0 +1,4 @@
+cd path/to/ai-income-engine
+git add .github/workflows/trigger-make-webhook.yml
+git commit -m "Add Make.com webhook trigger workflow"
+git push origin main
