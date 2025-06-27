@@ -1,0 +1,31 @@
+# 🚀 AI Income Engine – Master Automation Blueprint
+
+## 1. System Overview
+This automation system handles:
+- Content creation, affiliate linking, uploading, and performance reporting
+- Hourly triggers via GitHub Actions and Make.com
+- End-to-end reporting and publishing
+
+All access credentials, stream intervals, and trigger logic are managed securely.
+
+## 2. GitHub Actions Workflow
+
+**File:** `.github/workflows/trigger-makecom.yml`
+
+```yaml
+name: AI Passive Income Engine
+
+on:
+  schedule:
+    - cron: '0 * * * *'    # Every hour
+  workflow_dispatch:
+
+jobs:
+  trigger-make:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Make.com Scenario
+        run: |
+          curl -X POST https://hook.us1.make.com/f189df9895f26aa5d12d48e8d69ae5aa
+      - name: Log Trigger Success
+        run: echo "✅ Make.com scenario triggered at $(date)"
