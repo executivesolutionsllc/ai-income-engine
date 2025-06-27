@@ -1,0 +1,63 @@
+# AI Income Engine
+
+A fully automated AI-powered passive income engine to ideate, create, publish, and monetize motivational and law-of-attraction content across YouTube, WordPress, TikTok, and Instagram.
+
+## Features
+
+- **Keyword Research:** Daily high-value keyword fetch (Ahrefs/SEMrush)
+- **AI Content Generation:** GPT-4o for videos, articles, captions, etc.
+- **Voiceover:** ElevenLabs TTS integration
+- **Video Production:** Auto-created videos (Pictory/Synthesia-compatible)
+- **Publishing:** Multi-platform auto-posting & scheduling
+- **Monetization:** Affiliate links, ad placement, FTC compliance (CPA Grip, Digistore24, Amazon)
+- **Analytics:** Performance, revenue, and trend tracking, real-time reports
+- **Dashboard:** Glide/Pory mobile dashboard for control & insights
+- **Automation:** Orchestrated by Make.com/n8n and GitHub Actions
+
+## Quick Start
+
+1. Copy environment template and fill in API keys:
+   ```bash
+   cp .env.example .env
+   ```
+2. Edit `make-scenarios/daily-pipeline.json` for your Make.com/n8n setup.
+3. Launch pipeline:
+   ```bash
+   bash scripts/launch_now.sh
+   ```
+   Or trigger via dashboard/webhook.
+4. Monitor pipeline and analytics in your dashboard.
+
+## Local Deployment
+
+- Dockerized for local/cloud deployment
+- GitHub Actions for scheduled/one-click runs
+- Easily clone & scale for new niches
+
+## Setup (Python)
+
+1. Clone repo:
+   ```bash
+   gh repo clone executivesolutionsllc/ai-income-engine
+   ```
+2. Set secrets:
+   ```bash
+   cp .env.example .env && nano .env
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run:
+   ```bash
+   python src/pipeline.py
+   ```
+
+## Workflows
+
+- Linting, testing, and deploy workflows in `.github/workflows/`
+- Use `push_and_trigger.sh` to trigger GitHub Actions and Make.com pipelines
+
+## Documentation
+
+See [docs/](docs/) for setup, scaling, and customization details.
