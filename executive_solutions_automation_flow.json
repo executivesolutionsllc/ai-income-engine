@@ -1,0 +1,90 @@
+{
+  "name": "Executive Solutions Daily Automation",
+  "modules": [
+    {
+      "name": "Generate Motivational Script",
+      "type": "OpenAI - ChatGPT",
+      "operation": "Generate Text",
+      "input": {
+        "prompt": "Write a 30-second motivational speech focused on manifestation, the law of attraction, and self-belief. Use a calm, deep, masculine tone. End with: 'Click the link in bio to begin your transformation.'",
+        "model": "gpt-4"
+      }
+    },
+    {
+      "name": "Generate Voiceover",
+      "type": "ElevenLabs",
+      "operation": "Text-to-Speech",
+      "input": {
+        "text": "{{Generate Motivational Script.output}}",
+        "voice": "deep-calm-male",
+        "output_format": "mp3"
+      }
+    },
+    {
+      "name": "Create Video",
+      "type": "RunwayML or CapCut API",
+      "operation": "Combine Voice + Stock Video + Subtitles",
+      "input": {
+        "voiceover_audio": "{{Generate Voiceover.output}}",
+        "background_video": "motivational_clip_random.mp4",
+        "text_overlay": "{{Generate Motivational Script.output}}",
+        "watermark": "@executivesolutionsllc"
+      }
+    },
+    {
+      "name": "Generate Caption",
+      "type": "OpenAI - ChatGPT",
+      "operation": "Generate Text",
+      "input": {
+        "prompt": "Write a short social media caption for a video about manifestation and law of attraction. Include a CTA and 3 hashtags. CTA: 'Start your journey \u2192 link in bio'. Hashtags: #motivation #manifestation #successmindset"
+      }
+    },
+    {
+      "name": "Schedule Post",
+      "type": "Metricool or Later.com",
+      "operation": "Upload and Schedule",
+      "input": {
+        "video": "{{Create Video.output}}",
+        "caption": "{{Generate Caption.output}}",
+        "scheduled_time": "12:00 PM CST",
+        "platforms": [
+          "TikTok",
+          "Instagram",
+          "YouTube Shorts"
+        ]
+      }
+    },
+    {
+      "name": "Update Notion Dashboard",
+      "type": "Notion",
+      "operation": "Create or Update Entry",
+      "input": {
+        "fields": {
+          "Date": "{{now}}",
+          "Script": "{{Generate Motivational Script.output}}",
+          "Video_URL": "{{Create Video.output}}",
+          "Caption": "{{Generate Caption.output}}",
+          "Status": "Scheduled"
+        }
+      }
+    },
+    {
+      "name": "Ensure Beacons.ai Links Are Active",
+      "type": "Web Request",
+      "operation": "POST",
+      "url": "https://beacons.ai/api/syncLinks",
+      "input": {
+        "offers": [
+          "Digistore24: Mindset Audio Program",
+          "CPAgrip: Get Paid to Listen",
+          "Digital Journal Course"
+        ],
+        "cta_buttons": [
+          "Start Now",
+          "Free Access",
+          "Join Here"
+        ]
+      }
+    }
+  ]
+}
